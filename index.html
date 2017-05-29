@@ -293,24 +293,8 @@
         window.addEventListener('resize', update);
 
         textarea.addEventListener('input', function(evt) {
-            var previousCursorLocation = textarea.selectionEnd;
-            var previousValue = evt.target.value;
-            var newValue = clapify(previousValue);
-
-            evt.target.value = newValue;
-
-            var previousNumClaps =
-                (previousValue.match(clapRegex) || []).length;
-            var newNumClaps = (newValue.match(clapRegex) || []).length;
-
-            // If 👏 a 👏 clap 👏 was 👏 added, 👏 we 👏 need 👏 to 👏
-            // move 👏 the 👏 user's 👏 cursor 👏 over 👏 to 👏 the 👏
-            // other 👏 side 👏 of 👏 it 👏 so 👏 they 👏 can 👏 happily
-            // 👏 keep 👏 typing.
-            if (newNumClaps > previousNumClaps){
-                textarea.selectionEnd = previousCursorLocation + (' 👏 '.length - 1);
-            }
-
+            // TODO: 👏 Support 👏 typing 👏 in 👏 the 👏 middle 👏 text.
+            evt.target.value = clapify(evt.target.value);
             update();
         });
 
