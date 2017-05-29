@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="“The 👏  future 👏  of 👏  online 👏  conversation 👏  is 👏  a 👏  hand 👏  emoji 👏  clapping 👏  in 👏  your 👏  face 👏  forever.” – Slate.com" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@ndrwhr" />
+    <meta property="og:url" content="http://clap.space/" />
+    <meta property="og:title" content="The 👏 future 👏 is 👏 now." />
+    <meta property="og:description" content="“The 👏  future 👏  of 👏  online 👏  conversation 👏  is 👏  a 👏  hand 👏  emoji 👏  clapping 👏  in 👏  your 👏  face 👏  forever.”" />
+    <meta property="og:image" content="http://clap.space/images/social-a.png" />
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+    <title>The 👏 future 👏 is 👏 now.</title>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        html {
+            height: 100%;
+        }
+        body {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            padding: 5vw;
+            min-height: 100%;
+            font-family: 'Roboto', sans-serif;
+        }
+        textarea {
+            width: 100%;
+            overflow: hidden;
+            resize: none;
+            outline: none;
+            border: none;
+            font-size: 5vw;
+            font-family: inherit;
+            text-align: center;
+            margin-bottom: 35px;
+            vertical-align: middle;
+            line-height: 1.8em;
+        }
+        @media only screen and (min-width: 768px) {
+            textarea {
+                font-size: 5vw;
+            }
+        }
+        @media only screen and (max-width: 767px) {
+            textarea {
+                font-size: 35px;
+            }
+        }
+        textarea::-webkit-input-placeholder {
+            opacity: 0.2;
+            color: black;
+        }
+        textarea:-ms-input-placeholder {
+            opacity: 0.2;
+            color: black;
+        }
+        textarea::placeholder {
+            opacity: 0.2;
+            color: black;
+        }
+        .copy-button {
+            position: relative;
+            display: inline-block;
+            border: none;
+            color: #6a4e94;
+            background: #D8BDFF;
+            outline: none;
+            font-size: 17px;
+            font-family: inherit;
+            line-height: 1em;
+            -webkit-transition: background 100ms ease-out, opacity 200ms ease-out;
+            transition: background 100ms ease-out, opacity 200ms ease-out;
+            cursor: pointer;
+            overflow: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            font-weight: 700;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+        .copy-button:disabled {
+            color: #555;
+            background: #ccc;
+            opacity: 0;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        .copy-button:not(:disabled):hover {
+            background: #C8A4FF;
+        }
+        .copy-button:not(:disabled):active {
+            background: #B988FF;
+        }
+        .copy-button__contents {
+            position: relative;
+            display: block;
+            -webkit-transition: -webkit-transform 300ms;
+            transition: -webkit-transform 300ms;
+            transition: transform 300ms;
+            transition: transform 300ms, -webkit-transform 300ms;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+        .copy-button--success .copy-button__contents {
+            -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+        }
+        .copy-button--failure .copy-button__contents {
+            -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+        }
+        .copy-button__text {
+            display: block;
+            padding: 15px 30px;
+        }
+        .copy-button__result {
+            position: absolute;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 28px;
+        }
+        .copy-button__result--failure {
+            top: -100%;
+        }
+        .copy-button__result--success {
+            top: 100%;
+        }
+        .fomo {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+        .fomo iframe {
+            display: block;
+            margin-top: 10px;
+        }
+        .why {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 18px;
+        }
+        .why__link {
+            position: relative;
+            display: inline-block;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+        .why__tooltip {
+            position: absolute;
+            bottom: calc(100% + 5px);
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 3px;
+            font-size: 13px;
+            padding: 5px 7px;
+            white-space: nowrap;
+            opacity: 0;
+            -webkit-transition: opacity 100ms, -webkit-transform 100ms;
+            transition: opacity 100ms, -webkit-transform 100ms;
+            transition: opacity 100ms, transform 100ms;
+            transition: opacity 100ms, transform 100ms, -webkit-transform 100ms;
+            pointer-events: none;
+            text-transform: uppercase;
+            -webkit-transform: translateY(10%);
+            transform: translateY(10%);
+        }
+        .why__tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 5px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid rgba(0, 0, 0, 0.5);
+            -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+        }
+        .why__link:hover .why__tooltip {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <textarea autofocus="true" placeholder="Type 👏 something."></textarea>
+
+    <button class="copy-button" disabled data-clipboard-target="textarea">
+        <span class="copy-button__contents">
+            <span class="copy-button__text">
+                COPY 👏 TO 👏 CLIPBOARD!
+            </span>
+            <span class="copy-button__result copy-button__result--failure">
+                👎
+            </span>
+            <span class="copy-button__result copy-button__result--success">
+                👍
+            </span>
+        </span>
+    </button>
+
+    <div class="fomo">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="Welcome 👏 to 👏 the 👏 future (via http://clap.space)." data-related="ndrwhr" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fclap.space%2F&width=124&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId" width="124" height="24" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    </div>
+
+    <div class="why">
+        <a class="why__link" href="http://www.slate.com/blogs/lexicon_valley/2016/04/06/tweets_with_clap_emojis_between_the_words_are_annoying.html" rel="noopener noreferrer" target="_blank">
+            📰 <span class="why__tooltip">Inspiration</span>
+        </a>
+        <a class="why__link" href="http://andrew.wang-hoyer.com">
+            🖐 <span class="why__tooltip">Who 👏 did 👏 this?</span>
+        </a>
+    </div>
+
+    <script type="text/javascript" src="./clipboard.min.js"></script>
+    <script type="text/javascript">
+        var clapRegex = /👏[🏻🏼🏽🏾🏿]?/g;
+        var textarea = document.querySelector('textarea');
+        var copyButton = document.querySelector('.copy-button');
+
+        function clapify(str) {
+            // Nothing 👏 to 👏 clapify.
+            if (!str.length) {
+                return str;
+            }
+
+            return str
+                .replace(clapRegex, '')
+                .replace(/\s+/g, ' ')
+                .split(' ')
+                .reduce(function(acc, part, index, parts) {
+                    if (index !== 0 && part.length) {
+                        acc.push(' 👏 ');
+                    }
+
+                    acc.push(part);
+
+                    return acc;
+                }, [])
+                .map(part => part.length ? part : ' ')
+                .join('');
+        }
+
+        function update() {
+            textarea.style.height = '0';
+            textarea.style.height = textarea.scrollHeight + 'px';
+            copyButton.disabled = !textarea.value.length;
+        }
+
+        window.addEventListener('resize', update);
+
+        textarea.addEventListener('input', function(evt) {
+            var previousCursorLocation = textarea.selectionEnd;
+            var previousValue = evt.target.value;
+            var newValue = clapify(previousValue);
+
+            evt.target.value = newValue;
+
+            var previousNumClaps =
+                (previousValue.match(clapRegex) || []).length;
+            var newNumClaps = (newValue.match(clapRegex) || []).length;
+
+            // If 👏 a 👏 clap 👏 was 👏 added, 👏 we 👏 need 👏 to 👏
+            // move 👏 the 👏 user's 👏 cursor 👏 over 👏 to 👏 the 👏
+            // other 👏 side 👏 of 👏 it 👏 so 👏 they 👏 can 👏 happily
+            // 👏 keep 👏 typing.
+            if (newNumClaps > previousNumClaps){
+                textarea.selectionEnd = previousCursorLocation + (' 👏 '.length - 1);
+            }
+
+            update();
+        });
+
+        document.body.addEventListener('click', function(evt) {
+            // We 👏 only 👏 want 👏 to 👏 focus 👏 the 👏 textarea 👏
+            // if 👏 the 👏 user 👏 clicks 👏 on 👏 body, 👏 and 👏
+            // ignore 👏 any 👏 clicks 👏 on 👏 the 👏 children 👏 of 👏
+            // the 👏 body.
+            if (evt.target.tagName === 'BODY') {
+                textarea.focus();
+            }
+        });
+
+        function updateButton(wasSuccess) {
+            copyButton.classList.add(
+                wasSuccess ?
+                'copy-button--success' :
+                'copy-button--failure'
+            );
+
+            setTimeout(function() {
+                copyButton.classList.remove(
+                    'copy-button--success',
+                    'copy-button--failure'
+                );
+            }, 1500);
+        }
+
+        var clipboard = new Clipboard('.copy-button');
+        clipboard.on('success', function(evt) {
+            updateButton(true);
+            evt.clearSelection();
+        });
+        clipboard.on('error', function() {
+            updateButton(false);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            update();
+        });
+    </script>
+</body>
+</html>
