@@ -46,7 +46,7 @@
             -webkit-box-direction: normal;
             -ms-flex-direction: column;
             flex-direction: column;
-            padding: 5vw;
+            padding: 5vw 5vw 100px;
             min-height: 100%;
             font-family: 'Roboto', sans-serif;
         }
@@ -85,6 +85,33 @@
             opacity: 0.2;
             color: black;
         }
+        .tone-buttons {
+            margin-bottom: 35px;
+            opacity: 1;
+            -webkit-transition: opacity 200ms ease-out;
+            transition: opacity 200ms ease-out;
+        }
+        .tone-buttons--disabled {
+            opacity: 0;
+        }
+        .tone-buttons__button {
+            padding: 6px 10px;
+            font-size: 20px;
+            background: transparent;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            border: 3px solid transparent;
+            -webkit-transition: border-color 100ms ease-out;
+            transition: border-color 100ms ease-out;
+            cursor: pointer;
+        }
+        .tone-buttons__button:not(:last-child){
+            margin-right: 5px;
+        }
+        .tone-buttons__button--selected {
+            border-color: #D8BDFF;
+        }
         .copy-button {
             position: relative;
             display: inline-block;
@@ -104,7 +131,7 @@
             -ms-user-select: none;
             user-select: none;
             font-weight: 700;
-            border-radius: 100px;
+            border-radius: 10px;
             white-space: nowrap;
         }
         .copy-button:disabled {
@@ -229,6 +256,8 @@
 <body>
     <textarea autofocus="true" placeholder="Type 👏 something."></textarea>
 
+    <div class="tone-buttons tone-buttons--disabled"></div>
+
     <button class="copy-button" disabled data-clipboard-target="textarea">
         <span class="copy-button__contents">
             <span class="copy-button__text">
@@ -259,9 +288,11 @@
 
     <script type="text/javascript" src="./clipboard.min.js"></script>
     <script type="text/javascript">
-        var clapRegex = /👏[🏻🏼🏽🏾🏿]?/g;
+        var currentTone = '';
+        var clapRegex = /👏[🏻🏼🏽🏾🏿]*/g;
         var textarea = document.querySelector('textarea');
         var copyButton = document.querySelector('.copy-button');
+        var toneButtonsContainer = document.querySelector('.tone-buttons');
 
         function clapify(str) {
             // Nothing 👏 to 👏 clapify.
@@ -275,7 +306,7 @@
                 .split(' ')
                 .reduce(function(acc, part, index, parts) {
                     if (index !== 0 && part.length) {
-                        acc.push(' 👏 ');
+                        acc.push(' 👏' + currentTone + ' ');
                     }
 
                     acc.push(part);
@@ -289,7 +320,11 @@
         function update() {
             textarea.style.height = '0';
             textarea.style.height = textarea.scrollHeight + 'px';
+
             copyButton.disabled = !textarea.value.length;
+
+            toneButtonsContainer.classList.toggle('tone-buttons--disabled',
+                !textarea.value.length);
         }
 
         window.addEventListener('resize', update);
@@ -343,6 +378,35 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
+            function updateToneButtons(tone){
+                currentTone = tone;
+
+                textarea.value = clapify(textarea.value);
+
+                toneButtons.forEach(function(button) {
+                    button.classList.toggle('tone-buttons__button--selected',
+                        button.dataset.tone === currentTone);
+                });
+
+                update();
+            }
+
+            var toneContainer = document.querySelector('.tone-buttons');
+            var toneButtons = ['', '🏻', '🏼', '🏽', '🏾', '🏿'].map(
+                function(tone) {
+                    var button = document.createElement('button');
+                    button.classList.add('tone-buttons__button');
+                    button.innerHTML = '👏' + tone;
+                    button.dataset.tone = tone;
+                    button.onclick = function() {updateToneButtons(tone)}
+
+                    toneContainer.appendChild(button);
+
+                    return button;
+                });
+
+            updateToneButtons(toneButtons[0].dataset.tone);
+
             update();
         });
     </script>
