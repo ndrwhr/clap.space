@@ -300,6 +300,22 @@
         var copyButton = document.querySelector('.copy-button');
         var toneButtonsContainer = document.querySelector('.tone-buttons');
 
+        function report(value, wasSuccess) {
+            // I 👏 don't 👏 care 👏 if 👏 people 👏 are 👏 only 👏
+            // copying 👏 whitespace.
+            if (!value || !value.trim()) return;
+
+            // Don't 👏 worry, 👏 your 👏 text 👏 is 👏 reported 👏
+            // anonymously.
+            ga('send', 'event',{
+                'eventCategory': 'copy',
+                'eventAction': wasSuccess ? 'success' : 'failure',
+                'eventLabel': value
+                    .replace(clapRegex, '')
+                    .replace(/\s+/, ' '),
+            });
+        }
+
         function clapify(str) {
             // Nothing 👏 to 👏 clapify.
             if (!str.length) {
@@ -341,6 +357,10 @@
             update();
         });
 
+        textarea.addEventListener('copy', function(evt) {
+            report(window.getSelection().toString(), true);
+        });
+
         document.body.addEventListener('click', function(evt) {
             // We 👏 only 👏 want 👏 to 👏 focus 👏 the 👏 textarea 👏
             // if 👏 the 👏 user 👏 clicks 👏 on 👏 body, 👏 and 👏
@@ -352,13 +372,7 @@
         });
 
         function updateButton(wasSuccess) {
-            ga('send', 'event',{
-                'eventCategory': 'copy',
-                'eventAction': wasSuccess ? 'success' : 'failure',
-                'eventLabel': textarea.value
-                    .replace(clapRegex, '')
-                    .replace(/\s+/, ' '),
-            });
+            report(textarea.value, wasSuccess);
 
             copyButton.classList.add(
                 wasSuccess ?
