@@ -3,13 +3,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="“The 👏  future 👏  of 👏  online 👏  conversation 👏  is 👏  a 👏  hand 👏  emoji 👏  clapping 👏  in 👏  your 👏  face 👏  forever.” – Slate.com" />
+    <meta name="description" content="“The 👏  future 👏  of 👏  online 👏 conversation 👏 is 👏  a 👏 hand 👏  emoji 👏 clapping 👏  in 👏  your 👏  face 👏 forever 👏.” – Slate.com" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:creator" content="@ndrwhr" />
     <meta property="og:url" content="http://clap.space/" />
-    <meta property="og:title" content="The 👏 future 👏 is 👏 now." />
-    <meta property="og:description" content="“The 👏  future 👏  of 👏  online 👏  conversation 👏  is 👏  a 👏  hand 👏  emoji 👏  clapping 👏  in 👏  your 👏  face 👏  forever.”" />
+    <meta property="og:title" content="The 👏 future 👏 is 👏 now 👏." />
+    <meta property="og:description" content="“The 👏 future 👏 of 👏 online 👏 conversation 👏 is 👏 a 👏 hand 👏 emoji 👏 clapping 👏  in 👏  your 👏  face 👏 forever 👏.”" />
     <meta property="og:image" content="http://clap.space/images/preview.png" />
     <meta property="og:image:width" content="478" />
     <meta property="og:image:height" content="478" />
@@ -19,7 +19,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
-    <title>The 👏 future 👏 is 👏 now.</title>
+    <title>The 👏 future 👏 is 👏 now 👏.</title>
 
     <style type="text/css">
         * {
@@ -259,7 +259,7 @@
         autocorrect="off"
         autocomplete="off"
         autofocus="true"
-        placeholder="Type 👏 something."
+        placeholder="Type 👏 something 👏."
     ></textarea>
 
     <div class="tone-buttons tone-buttons--disabled"></div>
@@ -267,7 +267,7 @@
     <button class="copy-button" disabled data-clipboard-target="textarea">
         <span class="copy-button__contents">
             <span class="copy-button__text">
-                COPY 👏 TO 👏 CLIPBOARD!
+                COPY 👏 TO 👏 CLIPBOARD 👏!
             </span>
             <span class="copy-button__result copy-button__result--failure">
                 👎
@@ -279,7 +279,7 @@
     </button>
 
     <div class="fomo">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-text="Welcome 👏 to 👏 the 👏 future" data-related="ndrwhr" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="Welcome 👏 to 👏 the 👏 future 👏" data-related="ndrwhr" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
         <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fclap.space%2F&width=124&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId" width="124" height="24" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
     </div>
 
@@ -288,7 +288,7 @@
             📰 <span class="why__tooltip">Inspiration</span>
         </a>
         <a class="why__link" href="http://andrew.wang-hoyer.com">
-            🖐 <span class="why__tooltip">Who 👏 did 👏 this?</span>
+            🖐 <span class="why__tooltip">Who 👏 did 👏 this 👏?</span>
         </a>
     </div>
 
@@ -302,11 +302,11 @@
 
         function report(value, wasSuccess) {
             // I 👏 don't 👏 care 👏 if 👏 people 👏 are 👏 only 👏
-            // copying 👏 whitespace.
+            // copying 👏 whitespace 👏.
             if (!value || !value.trim()) return;
 
             // Don't 👏 worry, 👏 your 👏 text 👏 is 👏 reported 👏
-            // anonymously.
+            // anonymously 👏.
             ga('send', 'event',{
                 'eventCategory': 'copy',
                 'eventAction': wasSuccess ? 'success' : 'failure',
@@ -317,26 +317,30 @@
         }
 
         function clapify(str) {
-            // Nothing 👏 to 👏 clapify.
+            // Nothing 👏 to 👏 clapify 👏.
             if (!str.length) {
                 return str;
             }
 
-            return str
-                .replace(clapRegex, '')
+            var parts = str
+                .replace(clapRegex, ' ')
                 .replace(/\s+/g, ' ')
                 .split(' ')
-                .reduce(function(acc, part, index, parts) {
-                    if (index !== 0 && part.length) {
-                        acc.push(' 👏' + currentTone + ' ');
-                    }
+                .filter(Boolean);
 
-                    acc.push(part);
+            // If 👏 the 👏 last 👏 character 👏 of 👏 the 👏 new 👏
+            // value 👏 is 👏 a 👏 space 👏 then 👏 we 👏 should 👏
+            // add 👏 in 👏 an 👏 empty 👏 string 👏 so 👏 that 👏
+            // an 👏 extra 👏 clap 👏 will 👏 be 👏 added 👏 to 👏 the 👏
+            // end 👏 of 👏 the 👏 string. 👏 If 👏 there 👏 is 👏 no 👏
+            // space 👏 at 👏 the 👏 end 👏 that 👏 means 👏 that 👏
+            // the 👏 user 👏 is 👏 still 👏 adding 👏 onto 👏 the 👏
+            // last 👏 word 👏.
+            if (str.charAt(str.length - 1) === ' ') {
+                parts.push('');
+            }
 
-                    return acc;
-                }, [])
-                .map(part => part.length ? part : ' ')
-                .join('');
+            return parts.join(' 👏' + currentTone + ' ');
         }
 
         function update() {
@@ -352,7 +356,8 @@
         window.addEventListener('resize', update);
 
         textarea.addEventListener('input', function(evt) {
-            // TODO: 👏 Support 👏 typing 👏 in 👏 the 👏 middle 👏 text.
+            // TODO: 👏 Support 👏 typing 👏 in 👏 the 👏 middle 👏
+            // text 👏.
             evt.target.value = clapify(evt.target.value);
             update();
         });
@@ -365,7 +370,7 @@
             // We 👏 only 👏 want 👏 to 👏 focus 👏 the 👏 textarea 👏
             // if 👏 the 👏 user 👏 clicks 👏 on 👏 body, 👏 and 👏
             // ignore 👏 any 👏 clicks 👏 on 👏 the 👏 children 👏 of 👏
-            // the 👏 body.
+            // the 👏 body 👏.
             if (evt.target.tagName === 'BODY') {
                 textarea.focus();
             }
