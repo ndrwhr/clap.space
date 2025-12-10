@@ -1,425 +1,443 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="“The 👏  future 👏  of 👏  online 👏 conversation 👏 is 👏  a 👏 hand 👏  emoji 👏 clapping 👏  in 👏  your 👏  face 👏 forever 👏.” – Slate.com" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="“The 👏  future 👏  of 👏  online 👏 conversation 👏 is 👏  a 👏 hand 👏  emoji 👏 clapping 👏  in 👏  your 👏  face 👏 forever 👏.” – Slate.com"
+    />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:creator" content="@ndrwhr" />
     <meta property="og:url" content="http://clap.space/" />
     <meta property="og:title" content="The 👏 future 👏 is 👏 now 👏." />
-    <meta property="og:description" content="“The 👏 future 👏 of 👏 online 👏 conversation 👏 is 👏 a 👏 hand 👏 emoji 👏 clapping 👏  in 👏  your 👏  face 👏 forever 👏.”" />
+    <meta
+      property="og:description"
+      content="“The 👏 future 👏 of 👏 online 👏 conversation 👏 is 👏 a 👏 hand 👏 emoji 👏 clapping 👏  in 👏  your 👏  face 👏 forever 👏.”"
+    />
     <meta property="og:image" content="http://clap.space/images/preview.png" />
     <meta property="og:image:width" content="478" />
     <meta property="og:image:height" content="478" />
 
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+      rel="stylesheet"
+    />
 
     <title>The 👏 future 👏 is 👏 now 👏.</title>
 
     <style type="text/css">
-        * {
-            margin: 0;
-            padding: 0;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-        html {
-            height: 100%;
-        }
-        body {
-            position: relative;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            padding: 5vw 5vw 100px;
-            min-height: 100%;
-            font-family: 'Roboto', sans-serif;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      html {
+        height: 100%;
+      }
+      body {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        padding: 5vw 5vw 100px;
+        min-height: 100%;
+        font-family: "Roboto", sans-serif;
+      }
+      textarea {
+        width: 100%;
+        overflow: hidden;
+        resize: none;
+        outline: none;
+        border: none;
+        font-size: 5vw;
+        font-family: inherit;
+        text-align: center;
+        margin-bottom: 35px;
+        vertical-align: middle;
+        line-height: 1.8em;
+      }
+      @media only screen and (min-width: 768px) {
         textarea {
-            width: 100%;
-            overflow: hidden;
-            resize: none;
-            outline: none;
-            border: none;
-            font-size: 5vw;
-            font-family: inherit;
-            text-align: center;
-            margin-bottom: 35px;
-            vertical-align: middle;
-            line-height: 1.8em;
+          font-size: 5vw;
         }
-        @media only screen and (min-width: 768px) {
-            textarea {
-                font-size: 5vw;
-            }
+      }
+      @media only screen and (max-width: 767px) {
+        textarea {
+          font-size: 35px;
         }
-        @media only screen and (max-width: 767px) {
-            textarea {
-                font-size: 35px;
-            }
-        }
-        textarea::-webkit-input-placeholder {
-            opacity: 0.2;
-            color: black;
-        }
-        textarea:-ms-input-placeholder {
-            opacity: 0.2;
-            color: black;
-        }
-        textarea::placeholder {
-            opacity: 0.2;
-            color: black;
-        }
-        .tone-buttons {
-            margin-bottom: 35px;
-            opacity: 1;
-            -webkit-transition: opacity 200ms ease-out;
-            transition: opacity 200ms ease-out;
-        }
-        .tone-buttons--disabled {
-            opacity: 0;
-        }
-        .tone-buttons__button {
-            padding: 6px 10px;
-            font-size: 20px;
-            background: transparent;
-            border-radius: 10px;
-            border: none;
-            outline: none;
-            border: 3px solid transparent;
-            -webkit-transition: border-color 100ms ease-out;
-            transition: border-color 100ms ease-out;
-            cursor: pointer;
-        }
-        .tone-buttons__button:not(:last-child){
-            margin-right: 5px;
-        }
-        .tone-buttons__button--selected {
-            border-color: #D8BDFF;
-        }
-        .copy-button {
-            position: relative;
-            display: inline-block;
-            border: none;
-            color: #6a4e94;
-            background: #D8BDFF;
-            outline: none;
-            font-size: 17px;
-            font-family: inherit;
-            line-height: 1em;
-            -webkit-transition: background 100ms ease-out, opacity 200ms ease-out;
-            transition: background 100ms ease-out, opacity 200ms ease-out;
-            cursor: pointer;
-            overflow: hidden;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            font-weight: 700;
-            border-radius: 10px;
-            white-space: nowrap;
-        }
-        .copy-button:disabled {
-            color: #555;
-            background: #ccc;
-            opacity: 0;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-        .copy-button:not(:disabled):hover {
-            background: #C8A4FF;
-        }
-        .copy-button:not(:disabled):active {
-            background: #B988FF;
-        }
-        .copy-button__contents {
-            position: relative;
-            display: block;
-            -webkit-transition: -webkit-transform 300ms;
-            transition: -webkit-transform 300ms;
-            transition: transform 300ms;
-            transition: transform 300ms, -webkit-transform 300ms;
-            -webkit-transform: translateY(0);
-            transform: translateY(0);
-        }
-        .copy-button--success .copy-button__contents {
-            -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-        }
-        .copy-button--failure .copy-button__contents {
-            -webkit-transform: translateY(100%);
-            transform: translateY(100%);
-        }
-        .copy-button__text {
-            display: block;
-            padding: 15px 30px;
-        }
-        .copy-button__result {
-            position: absolute;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            font-size: 28px;
-        }
-        .copy-button__result--failure {
-            top: -100%;
-        }
-        .copy-button__result--success {
-            top: 100%;
-        }
-        .why {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            font-size: 18px;
-        }
-        .why__link {
-            position: relative;
-            display: inline-block;
-            margin-left: 10px;
-            text-decoration: none;
-        }
-        .why__tooltip {
-            position: absolute;
-            bottom: calc(100% + 5px);
-            right: 0;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border-radius: 3px;
-            font-size: 13px;
-            padding: 5px 7px;
-            white-space: nowrap;
-            opacity: 0;
-            -webkit-transition: opacity 100ms, -webkit-transform 100ms;
-            transition: opacity 100ms, -webkit-transform 100ms;
-            transition: opacity 100ms, transform 100ms;
-            transition: opacity 100ms, transform 100ms, -webkit-transform 100ms;
-            pointer-events: none;
-            text-transform: uppercase;
-            -webkit-transform: translateY(10%);
-            transform: translateY(10%);
-        }
-        .why__tooltip::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 5px;
-            width: 0;
-            height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 5px solid rgba(0, 0, 0, 0.5);
-            -webkit-transform: translateY(100%);
-            transform: translateY(100%);
-        }
-        .why__link:hover .why__tooltip {
-            opacity: 1;
-            -webkit-transform: translateY(0);
-            transform: translateY(0);
-        }
+      }
+      textarea::-webkit-input-placeholder {
+        opacity: 0.2;
+        color: black;
+      }
+      textarea:-ms-input-placeholder {
+        opacity: 0.2;
+        color: black;
+      }
+      textarea::placeholder {
+        opacity: 0.2;
+        color: black;
+      }
+      .tone-buttons {
+        margin-bottom: 35px;
+        opacity: 1;
+        -webkit-transition: opacity 200ms ease-out;
+        transition: opacity 200ms ease-out;
+      }
+      .tone-buttons--disabled {
+        opacity: 0;
+      }
+      .tone-buttons__button {
+        padding: 6px 10px;
+        font-size: 20px;
+        background: transparent;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        border: 3px solid transparent;
+        -webkit-transition: border-color 100ms ease-out;
+        transition: border-color 100ms ease-out;
+        cursor: pointer;
+      }
+      .tone-buttons__button:not(:last-child) {
+        margin-right: 5px;
+      }
+      .tone-buttons__button--selected {
+        border-color: #d8bdff;
+      }
+      .copy-button {
+        position: relative;
+        display: inline-block;
+        border: none;
+        color: #6a4e94;
+        background: #d8bdff;
+        outline: none;
+        font-size: 17px;
+        font-family: inherit;
+        line-height: 1em;
+        -webkit-transition: background 100ms ease-out, opacity 200ms ease-out;
+        transition: background 100ms ease-out, opacity 200ms ease-out;
+        cursor: pointer;
+        overflow: hidden;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        font-weight: 700;
+        border-radius: 10px;
+        white-space: nowrap;
+      }
+      .copy-button:disabled {
+        color: #555;
+        background: #ccc;
+        opacity: 0;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+      .copy-button:not(:disabled):hover {
+        background: #c8a4ff;
+      }
+      .copy-button:not(:disabled):active {
+        background: #b988ff;
+      }
+      .copy-button__contents {
+        position: relative;
+        display: block;
+        -webkit-transition: -webkit-transform 300ms;
+        transition: -webkit-transform 300ms;
+        transition: transform 300ms;
+        transition: transform 300ms, -webkit-transform 300ms;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      .copy-button--success .copy-button__contents {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+      }
+      .copy-button--failure .copy-button__contents {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+      }
+      .copy-button__text {
+        display: block;
+        padding: 15px 30px;
+      }
+      .copy-button__result {
+        position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 28px;
+      }
+      .copy-button__result--failure {
+        top: -100%;
+      }
+      .copy-button__result--success {
+        top: 100%;
+      }
+      .why {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 18px;
+      }
+      .why__link {
+        position: relative;
+        display: inline-block;
+        margin-left: 10px;
+        text-decoration: none;
+      }
+      .why__tooltip {
+        position: absolute;
+        bottom: calc(100% + 5px);
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border-radius: 3px;
+        font-size: 13px;
+        padding: 5px 7px;
+        white-space: nowrap;
+        opacity: 0;
+        -webkit-transition: opacity 100ms, -webkit-transform 100ms;
+        transition: opacity 100ms, -webkit-transform 100ms;
+        transition: opacity 100ms, transform 100ms;
+        transition: opacity 100ms, transform 100ms, -webkit-transform 100ms;
+        pointer-events: none;
+        text-transform: uppercase;
+        -webkit-transform: translateY(10%);
+        transform: translateY(10%);
+      }
+      .why__tooltip::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 5px;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid rgba(0, 0, 0, 0.5);
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+      }
+      .why__link:hover .why__tooltip {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <textarea
-        autocapitalize="none"
-        autocorrect="off"
-        autocomplete="off"
-        autofocus="true"
-        placeholder="Type 👏 something 👏."
+      autocapitalize="none"
+      autocorrect="off"
+      autocomplete="off"
+      autofocus="true"
+      placeholder="Type 👏 something 👏."
     ></textarea>
 
     <div class="tone-buttons tone-buttons--disabled"></div>
 
     <button class="copy-button" disabled data-clipboard-target="textarea">
-        <span class="copy-button__contents">
-            <span class="copy-button__text">
-                COPY 👏 TO 👏 CLIPBOARD 👏!
-            </span>
-            <span class="copy-button__result copy-button__result--failure">
-                👎
-            </span>
-            <span class="copy-button__result copy-button__result--success">
-                👍
-            </span>
+      <span class="copy-button__contents">
+        <span class="copy-button__text"> COPY 👏 TO 👏 CLIPBOARD 👏! </span>
+        <span class="copy-button__result copy-button__result--failure">
+          👎
         </span>
+        <span class="copy-button__result copy-button__result--success">
+          👍
+        </span>
+      </span>
     </button>
 
     <div class="why">
-        <a class="why__link" href="http://www.slate.com/blogs/lexicon_valley/2016/04/06/tweets_with_clap_emojis_between_the_words_are_annoying.html" rel="noopener noreferrer" target="_blank">
-            📰 <span class="why__tooltip">Inspiration</span>
-        </a>
-        <a class="why__link" href="http://andrew.wang-hoyer.com">
-            🖐 <span class="why__tooltip">Who 👏 did 👏 this 👏?</span>
-        </a>
+      <a
+        class="why__link"
+        href="http://www.slate.com/blogs/lexicon_valley/2016/04/06/tweets_with_clap_emojis_between_the_words_are_annoying.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        📰 <span class="why__tooltip">Inspiration</span>
+      </a>
+      <a class="why__link" href="http://andrew.wang-hoyer.com">
+        🖐 <span class="why__tooltip">Who 👏 did 👏 this 👏?</span>
+      </a>
     </div>
 
     <script type="text/javascript" src="./clipboard.min.js"></script>
     <script type="text/javascript">
-        var currentTone = '';
-        var clapRegex = /👏[🏻🏼🏽🏾🏿]*/g;
-        var textarea = document.querySelector('textarea');
-        var copyButton = document.querySelector('.copy-button');
-        var toneButtonsContainer = document.querySelector('.tone-buttons');
+      var currentTone = "";
+      var clapRegex = /👏[🏻🏼🏽🏾🏿]*/g;
+      var textarea = document.querySelector("textarea");
+      var copyButton = document.querySelector(".copy-button");
+      var toneButtonsContainer = document.querySelector(".tone-buttons");
 
-        function report(value, wasSuccess) {
-            // I 👏 don't 👏 care 👏 if 👏 people 👏 are 👏 only 👏
-            // copying 👏 whitespace 👏.
-            if (!value || !value.trim()) return;
+      function report(value, wasSuccess) {
+        // I 👏 don't 👏 care 👏 if 👏 people 👏 are 👏 only 👏
+        // copying 👏 whitespace 👏.
+        if (!value || !value.trim()) return;
 
-            // Don't 👏 worry, 👏 your 👏 text 👏 is 👏 reported 👏
-            // anonymously 👏.
-            ga('send', 'event',{
-                'eventCategory': 'copy',
-                'eventAction': wasSuccess ? 'success' : 'failure',
-                'eventLabel': value
-                    .replace(clapRegex, '')
-                    .replace(/\s+/, ' '),
-            });
+        // Don't 👏 worry, 👏 your 👏 text 👏 is 👏 reported 👏
+        // anonymously 👏.
+        ga("send", "event", {
+          eventCategory: "copy",
+          eventAction: wasSuccess ? "success" : "failure",
+          eventLabel: value.replace(clapRegex, "").replace(/\s+/, " "),
+        });
+      }
+
+      function clapify(str) {
+        // Nothing 👏 to 👏 clapify 👏.
+        if (!str.length) {
+          return str;
         }
 
-        function clapify(str) {
-            // Nothing 👏 to 👏 clapify 👏.
-            if (!str.length) {
-                return str;
-            }
+        var parts = str
+          .replace(clapRegex, " ")
+          .replace(/\s+/g, " ")
+          .split(" ")
+          .filter(Boolean);
 
-            var parts = str
-                .replace(clapRegex, ' ')
-                .replace(/\s+/g, ' ')
-                .split(' ')
-                .filter(Boolean);
-
-            // If 👏 the 👏 last 👏 character 👏 of 👏 the 👏 new 👏
-            // value 👏 is 👏 a 👏 space 👏 then 👏 we 👏 should 👏
-            // add 👏 in 👏 an 👏 empty 👏 string 👏 so 👏 that 👏
-            // an 👏 extra 👏 clap 👏 will 👏 be 👏 added 👏 to 👏 the 👏
-            // end 👏 of 👏 the 👏 string. 👏 If 👏 there 👏 is 👏 no 👏
-            // space 👏 at 👏 the 👏 end 👏 that 👏 means 👏 that 👏
-            // the 👏 user 👏 is 👏 still 👏 adding 👏 onto 👏 the 👏
-            // last 👏 word 👏.
-            if (str.charAt(str.length - 1) === ' ') {
-                parts.push('');
-            }
-
-            return parts.join(' 👏' + currentTone + ' ');
+        // If 👏 the 👏 last 👏 character 👏 of 👏 the 👏 new 👏
+        // value 👏 is 👏 a 👏 space 👏 then 👏 we 👏 should 👏
+        // add 👏 in 👏 an 👏 empty 👏 string 👏 so 👏 that 👏
+        // an 👏 extra 👏 clap 👏 will 👏 be 👏 added 👏 to 👏 the 👏
+        // end 👏 of 👏 the 👏 string. 👏 If 👏 there 👏 is 👏 no 👏
+        // space 👏 at 👏 the 👏 end 👏 that 👏 means 👏 that 👏
+        // the 👏 user 👏 is 👏 still 👏 adding 👏 onto 👏 the 👏
+        // last 👏 word 👏.
+        if (str.charAt(str.length - 1) === " ") {
+          parts.push("");
         }
 
-        function update() {
-            textarea.style.height = '0';
-            textarea.style.height = textarea.scrollHeight + 'px';
+        return parts.join(" 👏" + currentTone + " ");
+      }
 
-            copyButton.disabled = !textarea.value.length;
+      function update() {
+        textarea.style.height = "0";
+        textarea.style.height = textarea.scrollHeight + "px";
 
-            toneButtonsContainer.classList.toggle('tone-buttons--disabled',
-                !textarea.value.length);
+        copyButton.disabled = !textarea.value.length;
+
+        toneButtonsContainer.classList.toggle(
+          "tone-buttons--disabled",
+          !textarea.value.length
+        );
+      }
+
+      window.addEventListener("resize", update);
+
+      textarea.addEventListener("input", function (evt) {
+        // TODO: 👏 Support 👏 typing 👏 in 👏 the 👏 middle 👏
+        // text 👏.
+        evt.target.value = clapify(evt.target.value);
+        update();
+      });
+
+      textarea.addEventListener("copy", function (evt) {
+        report(window.getSelection().toString(), true);
+      });
+
+      document.body.addEventListener("click", function (evt) {
+        // We 👏 only 👏 want 👏 to 👏 focus 👏 the 👏 textarea 👏
+        // if 👏 the 👏 user 👏 clicks 👏 on 👏 body, 👏 and 👏
+        // ignore 👏 any 👏 clicks 👏 on 👏 the 👏 children 👏 of 👏
+        // the 👏 body 👏.
+        if (evt.target.tagName === "BODY") {
+          textarea.focus();
         }
+      });
 
-        window.addEventListener('resize', update);
+      function updateButton(wasSuccess) {
+        report(textarea.value, wasSuccess);
 
-        textarea.addEventListener('input', function(evt) {
-            // TODO: 👏 Support 👏 typing 👏 in 👏 the 👏 middle 👏
-            // text 👏.
-            evt.target.value = clapify(evt.target.value);
-            update();
-        });
+        copyButton.classList.add(
+          wasSuccess ? "copy-button--success" : "copy-button--failure"
+        );
 
-        textarea.addEventListener('copy', function(evt) {
-            report(window.getSelection().toString(), true);
-        });
+        setTimeout(function () {
+          copyButton.classList.remove(
+            "copy-button--success",
+            "copy-button--failure"
+          );
+        }, 1500);
+      }
 
-        document.body.addEventListener('click', function(evt) {
-            // We 👏 only 👏 want 👏 to 👏 focus 👏 the 👏 textarea 👏
-            // if 👏 the 👏 user 👏 clicks 👏 on 👏 body, 👏 and 👏
-            // ignore 👏 any 👏 clicks 👏 on 👏 the 👏 children 👏 of 👏
-            // the 👏 body 👏.
-            if (evt.target.tagName === 'BODY') {
-                textarea.focus();
-            }
-        });
+      var clipboard = new Clipboard(".copy-button");
+      clipboard.on("success", function (evt) {
+        updateButton(true);
+        evt.clearSelection();
+      });
+      clipboard.on("error", function () {
+        updateButton(false);
+      });
 
-        function updateButton(wasSuccess) {
-            report(textarea.value, wasSuccess);
+      document.addEventListener("DOMContentLoaded", function () {
+        function updateToneButtons(tone) {
+          currentTone = tone;
 
-            copyButton.classList.add(
-                wasSuccess ?
-                'copy-button--success' :
-                'copy-button--failure'
+          textarea.value = clapify(textarea.value);
+
+          toneButtons.forEach(function (button) {
+            button.classList.toggle(
+              "tone-buttons__button--selected",
+              button.dataset.tone === currentTone
             );
+          });
 
-            setTimeout(function() {
-                copyButton.classList.remove(
-                    'copy-button--success',
-                    'copy-button--failure'
-                );
-            }, 1500);
+          update();
         }
 
-        var clipboard = new Clipboard('.copy-button');
-        clipboard.on('success', function(evt) {
-            updateButton(true);
-            evt.clearSelection();
+        var toneContainer = document.querySelector(".tone-buttons");
+        var toneButtons = ["", "🏻", "🏼", "🏽", "🏾", "🏿"].map(function (
+          tone
+        ) {
+          var button = document.createElement("button");
+          button.classList.add("tone-buttons__button");
+          button.innerHTML = "👏" + tone;
+          button.dataset.tone = tone;
+          button.onclick = function () {
+            updateToneButtons(tone);
+          };
+
+          toneContainer.appendChild(button);
+
+          return button;
         });
-        clipboard.on('error', function() {
-            updateButton(false);
-        });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            function updateToneButtons(tone){
-                currentTone = tone;
+        updateToneButtons(toneButtons[0].dataset.tone);
 
-                textarea.value = clapify(textarea.value);
-
-                toneButtons.forEach(function(button) {
-                    button.classList.toggle('tone-buttons__button--selected',
-                        button.dataset.tone === currentTone);
-                });
-
-                update();
-            }
-
-            var toneContainer = document.querySelector('.tone-buttons');
-            var toneButtons = ['', '🏻', '🏼', '🏽', '🏾', '🏿'].map(
-                function(tone) {
-                    var button = document.createElement('button');
-                    button.classList.add('tone-buttons__button');
-                    button.innerHTML = '👏' + tone;
-                    button.dataset.tone = tone;
-                    button.onclick = function() {updateToneButtons(tone)}
-
-                    toneContainer.appendChild(button);
-
-                    return button;
-                });
-
-            updateToneButtons(toneButtons[0].dataset.tone);
-
-            update();
-        });
+        update();
+      });
     </script>
-</body>
+  </body>
 </html>
